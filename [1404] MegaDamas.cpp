@@ -24,7 +24,7 @@ void dfs(int u, int v, int peso)
 				dis[x][y] = 1;	//marca a peça como capturada
 				dfs(tx, ty, peso+1);
 				if(res < peso+1) res = peso+1;
-				dis[x][y] = 0; //coloca a peça capturada no tabuleiro
+				dis[x][y] = 0; //coloca a peça capturada no tabuleiro (backtracking)
 			}
 		}
 	}
