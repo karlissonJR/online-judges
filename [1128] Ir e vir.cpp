@@ -23,9 +23,15 @@ int dfs(vector<int> *g)
     while(!pilha.empty()){
     int u = pilha.front();
     pilha.pop();
-    for(it=g[u].begin(); it!=g[u].end(); ++it) {
-         if(!vis[*it]){vis[*it] = true;  pilha.push(*it); ++cont;}
-    }
+    
+        for(it=g[u].begin(); it!=g[u].end(); ++it)
+        {
+             if(!vis[*it]){
+                 vis[*it] = true;
+                 pilha.push(*it);
+                 ++cont;
+             }
+        }
     }
     return cont;
 }
@@ -34,17 +40,18 @@ int main()
 {
     while(scanf("%d %d", &n, &m) && (n+m))
     {
-        for(int i=0; i<m; ++i){
-        scanf("%d %d %d", &u, &v, &p);
-        if(p-1) {
-            Gn[u].push_back(v);
-            Gn[v].push_back(u);
-            Gt[v].push_back(u);
-            Gt[u].push_back(v);
-        } else {
-            Gn[u].push_back(v);
-            Gt[v].push_back(u);
-        }
+        for(int i=0; i<m; ++i)
+        {
+            scanf("%d %d %d", &u, &v, &p);
+            if(p-1) {
+                Gn[u].push_back(v);
+                Gn[v].push_back(u);
+                Gt[v].push_back(u);
+                Gt[u].push_back(v);
+            } else {
+                Gn[u].push_back(v);
+                Gt[v].push_back(u);
+            }
         }
  
         reset();
@@ -62,4 +69,3 @@ int main()
     }
     return 0;
 }
- 
